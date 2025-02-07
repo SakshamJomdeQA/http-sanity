@@ -6,6 +6,8 @@ export default async function handler(req, res) {
 
   if (req.headers['content-type'].startsWith('multipart/form-data')) {
     form.parse(req, async (err, _fields, files) => {
+      console.log('_fields', _fields);
+      console.log('files', files);
       if (err) {
         res.status(500).json({ message: 'Error parsing the form data.' });
         return;

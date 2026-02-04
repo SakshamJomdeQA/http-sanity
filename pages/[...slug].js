@@ -3,7 +3,7 @@ export default function Page() {
 }
 
 export async function getServerSideProps(context) {
-  const { req, res, query } = context
+  const { req, res, query, params } = context
   
   // Set headers to prevent caching and set content type
   res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate')
@@ -20,7 +20,7 @@ export async function getServerSideProps(context) {
     pathname: req.url.split('?')[0],
     query: query,
     querystring: querystring,
-    params: {}, // Home page has no params
+    params: params,
     headers: req.headers,
     cookies: req.cookies || {},
     protocol: req.protocol || (req.connection?.encrypted ? 'https' : 'http'),

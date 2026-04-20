@@ -1,3 +1,11 @@
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '4mb',
+    },
+  },
+};
+
 export default function handler(req, res) {
   if (req.method === 'OPTIONS') {
     res.status(200).end();
